@@ -35,6 +35,17 @@ function isFull(cart) {
   }
 }
 
+//Function which removes specified item from an array; returns the removed item if found or null otherwise
+function removeItem(item, array) {
+  let index1 = array.indexOf(item);
+  if (index1 >= 0) {
+    let removedItem = array.splice(index1, 1);
+    return removedItem;
+  } else {
+    return null;
+  }
+}
+
 const MAX_ITEMS = 5;
 let basket = [];
 
@@ -52,6 +63,13 @@ console.log("Adding grapes to basket (should say true):", addItem('grapes', bask
 console.log("Basket is now:", basket);
 console.log("Adding carrots to basket (should say false; no more room in basket):", addItem('carrots', basket));
 console.log("Basket is still:", basket);
+
+//Testing removeItem function
+console.log("Basket is currently:", basket);
+console.log("We will remove:", removeItem('eggs', basket));
+console.log("Eggs are no longer present:", basket);
+console.log("We will try to remove tangerines:", removeItem('tangerines', basket));
+console.log("Basket remains the same:", basket);
 
 //Testing listItems function
 listItems(basket);
